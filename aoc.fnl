@@ -44,9 +44,10 @@
 (fn aoc.load-day [day-number]
   (fennel.dofile (: "days/day%02d.fnl" :format day-number)))
 
-(fn aoc.test-parser [day-number]
+(fn aoc.test-parser [day-number ?raw-input]
   (let [day (aoc.load-day day-number)
-        input (day.parser (aoc.read-input day-number))]
+        input (day.parser (or ?raw-input
+                              (aoc.read-input day-number)))]
     (match (type input)
       :function (icollect [v input] v)
       _ input)))
