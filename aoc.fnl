@@ -52,9 +52,10 @@
       :function (icollect [v input] v)
       _ input)))
 
-(fn aoc.run-day [day-number]
+(fn aoc.run-day [day-number ?raw-input]
   (let [day (aoc.load-day day-number)
-        (soln1 soln2) (aoc.get-solutions day (aoc.read-input day-number))]
+        (soln1 soln2) (aoc.get-solutions day (or ?raw-input
+                                                 (aoc.read-input day-number)))]
     (eprintf "Day %d:\n" day-number)
     (eprintf "  part 1: %s\n" (soln1))
     (eprintf "  part 2: %s\n" (soln2))))
