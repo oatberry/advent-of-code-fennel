@@ -21,7 +21,7 @@
   (eprintf "Downloading input for day %d...\n" day-number)
   (let [url (: "https://adventofcode.com/2022/day/%d/input" :format day-number)
         headers {:cookie (get-cookie)
-                 :user-agent "github.com/oatberry/aoc2022-fennel <thomas@berryhill.me>"}
+                 :user-agent "git.sr.ht/~oats/aoc2022-fennel <thomas@berryhill.me>"}
         sink (-> day-number input-filename (io.open :w) ltn12.sink.file)
         _ (assert (https.request {: url : headers : sink}))]
     (aoc.read-input day-number)))
