@@ -2,7 +2,7 @@
 (local tests (require :tests))
 (local {: eprintf} (require :util))
 
-(local days [1 2])
+(local days [1 2 3])
 
 (fn usage []
   (eprintf "usage: aoc [DAYNUM | test [DAYNUM]]\n"))

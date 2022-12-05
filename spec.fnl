@@ -10,4 +10,10 @@
      [15 12]]
 
     [#(aoc.read-input 2)
-     [12156 10835]]]}
+     [12156 10835]]]
+
+ 3 [["vJrwpWtwJgWrhcsFMMfFFhFp\njqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL\nPmmdzqPrVvPwwTWBwg\nwMqvLMZHhHMvwLHjbvcjnnSBnvTQFn\nttgJtRGJQctTZtZT\nCrZsJsPPZsGzwwsLwLmpwMDw\n"
+     [157 70]]
+
+    [#(aoc.read-input 3)
+     [7737 2697]]]}
