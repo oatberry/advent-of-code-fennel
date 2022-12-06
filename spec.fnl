@@ -22,4 +22,10 @@
      [2 4]]
 
     [#(aoc.read-input 4)
-     [526 886]]]}
+     [526 886]]]
+
+ 5 [["    [D]    \n[N] [C]    \n[Z] [M] [P]\n 1   2   3 \n\nmove 1 from 2 to 1\nmove 3 from 1 to 3\nmove 2 from 2 to 1\nmove 1 from 1 to 2\n"
+     ["CMZ" "MCD"]]
+
+    [#(aoc.read-input 5)
+     ["RNZLFZSJH" "CNSFCGJSM"]]]}
