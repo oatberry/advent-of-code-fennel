@@ -28,4 +28,7 @@
      ["CMZ" "MCD"]]
 
     [#(aoc.read-input 5)
-     ["RNZLFZSJH" "CNSFCGJSM"]]]}
+     ["RNZLFZSJH" "CNSFCGJSM"]]]
+
+ 6 [[#(aoc.read-input 6)
+     [1542 3153]]]}
