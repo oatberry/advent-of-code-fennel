@@ -27,7 +27,9 @@
     (aoc.read-input day-number)))
 
 (fn aoc.get-solutions [day raw-input]
-  (let [input (day.parser raw-input)]
+  (let [input (if day.parser
+                  (day.parser raw-input)
+                  raw-input)]
     (if day.solution
         (let [(soln1 soln2) (day.solution input)]
           (values #soln1 #soln2))
@@ -46,8 +48,11 @@
 
 (fn aoc.test-parser [day-number ?raw-input]
   (let [day (aoc.load-day day-number)
-        input (day.parser (or ?raw-input
-                              (aoc.read-input day-number)))]
+        raw-input (or ?raw-input
+                      (aoc.read-input day-number))
+        input (if day.parser
+                  (day.parser raw-input)
+                  raw-input)]
     (match (type input)
       :function (icollect [v input] v)
       _ input)))

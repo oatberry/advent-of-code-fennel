@@ -1,5 +1,5 @@
 ;;; Advent of Code 2022 - Day 6
-;;; Packets & Messages
+;;; In Which We Slice Strings
 ;;;
 ;;; I was kind of hoping this might be a general packet-framing problem, alas.
 ;;; All we need to do is write a generic find-first-group-of-N-unique-characters
@@ -20,6 +20,5 @@
           (loop (+ index 1)))))
   (+ n -1 (loop 1)))
 
-{:parser (fn [x] x)
- :part1 (partial find-n-unique 4)
+{:part1 (partial find-n-unique 4)
  :part2 (partial find-n-unique 14)}

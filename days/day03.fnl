@@ -44,6 +44,5 @@
                                           (str->set sack3)))]
       (+ priority-sum (priority shared-item)))))
 
-{:parser (fn [x] x)
- : part1
+{: part1
  : part2}

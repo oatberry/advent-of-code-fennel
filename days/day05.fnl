@@ -1,5 +1,5 @@
 ;;; Advent of Code 2022 - Day 5
-;;; Stacks
+;;; In Which We Parse Stacks
 ;;;
 ;;; An execution engine that manipulates stacks is not particularly difficult,
 ;;; but parsing vertically-encoded stacks across lines is a bit trickier. I
