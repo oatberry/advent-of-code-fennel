@@ -1,3 +1,13 @@
+;;; Advent of Code 2022 - Day 3
+;;; In Which I Implement Set Intersection
+;;;
+;;; The most obvious solution to me was to create sets of letters from each
+;;; string being considered, and the operation of set intersection will yield
+;;; the elements shared among them. Sets are pretty trivially represented in
+;;; Fennel (Lua) with a table having the set elements as the keys and `true` for
+;;; the values. Unfortunately, Lua does not include set intersection in its
+;;; standard library, so I created a naïve implementation.
+
 (fn str->set [str]
   (collect [char (string.gmatch str ".")] char true))
 

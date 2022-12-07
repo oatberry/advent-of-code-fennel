@@ -1,3 +1,9 @@
+;;; Advent of Code 2022 - Day 4
+;;; Ranges
+;;;
+;;; Pretty straightforward; compare the upper and lower bounds of both parts of
+;;; each line to see what kind of overlap there is.
+
 (fn parser [raw-input]
   (icollect [n1 n2 n3 n4 (raw-input:gmatch "(%d+)-(%d+),(%d+)-(%d+)")]
     [[(tonumber n1) (tonumber n2)] [(tonumber n3) (tonumber n4)]]))

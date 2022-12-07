@@ -1,3 +1,12 @@
+;;; Advent of Code 2022 - Day 5
+;;; Stacks
+;;;
+;;; An execution engine that manipulates stacks is not particularly difficult,
+;;; but parsing vertically-encoded stacks across lines is a bit trickier. I
+;;; ended up using the "number line" to figure out how many total stacks there
+;;; were, then parsed the stack lines in reverse, building up all stacks
+;;; simultaneously from the bottom up.
+
 (fn parse-stacks [raw-stacks]
   (let [num-stacks (tonumber (raw-stacks:match "(%d+) $"))
         lines (icollect [line (raw-stacks:gmatch " *%[[^\n]+")] line)

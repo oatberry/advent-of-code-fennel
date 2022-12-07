@@ -1,3 +1,9 @@
+;;; Advent of Code 2022 - Day 1
+;;; In Which We Utilize Sorting
+;;;
+;;; Here we go! Ez-pz: sum each section of numbers, and then sort (in descending
+;;; order) the sums to determine the most calorie-laden elves.
+
 (fn parser [raw-input]
   (icollect [rations (string.gmatch (.. raw-input "\n") "(.-)\n\n")]
     (icollect [calories (string.gmatch rations "(%d+)")]
