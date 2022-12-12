@@ -2,7 +2,7 @@
 (local https (require :ssl.https))
 (local ltn12 (require :ltn12))
 
-(local {: eprintf} (require :util))
+(local {: eprintf : new-timer} (require :util))
 
 (local aoc {})
 
@@ -26,14 +26,13 @@
         _ (assert (https.request {: url : headers : sink}))]
     (aoc.read-input day-number)))
 
-(fn aoc.get-solutions [day raw-input]
+(fn aoc.run-solutions [day raw-input]
   (let [input (if day.parser
                   (day.parser raw-input)
                   raw-input)]
     (if day.solution
-        (let [(soln1 soln2) (day.solution input)]
-          (values #soln1 #soln2))
-        (values #(day.part1 input) #(day.part2 input)))))
+        (day.solution input)
+        (values (day.part1 input) (day.part2 input)))))
 
 (fn aoc.read-input [day-number]
   (let [f (io.open (input-filename day-number))]
@@ -59,10 +58,13 @@
 
 (fn aoc.run-day [day-number ?raw-input]
   (let [day (aoc.load-day day-number)
-        (soln1 soln2) (aoc.get-solutions day (or ?raw-input
-                                                 (aoc.read-input day-number)))]
+        raw-input (or ?raw-input (aoc.read-input day-number))
+        timer (new-timer)
+        (soln1 soln2) (aoc.run-solutions day raw-input)
+        runtime-usec (timer.value)]
     (eprintf "Day %d:\n" day-number)
-    (eprintf "  part 1: %s\n" (soln1))
-    (eprintf "  part 2: %s\n" (soln2))))
+    (eprintf "  part 1: %s\n" soln1)
+    (eprintf "  part 2: %s\n" soln2)
+    (eprintf "  run time: %0.3f ms\n" (/ runtime-usec 1000))))
 
 aoc

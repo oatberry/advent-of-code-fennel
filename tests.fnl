@@ -17,9 +17,9 @@
             raw-input (match (type raw-input)
                         :function (raw-input)
                         _ raw-input)
-            (soln1 soln2) (aoc.get-solutions day raw-input)
-            ok1 (check-result day-number test-number 1 expected1 (soln1))
-            ok2 (check-result day-number test-number 2 expected2 (soln2))]
+            (soln1 soln2) (aoc.run-solutions day raw-input)
+            ok1 (check-result day-number test-number 1 expected1 soln1)
+            ok2 (check-result day-number test-number 2 expected2 soln2)]
         (and all-ok ok1 ok2)))))
 
 (fn run-tests []
