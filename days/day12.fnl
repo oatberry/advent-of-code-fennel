@@ -63,15 +63,14 @@
            (set tbl.head (+ tbl.head 1))
            v))})
 
-(fn bfs [graph start end-predicate direction]
-  (local adj-fn (. graph direction))
+(fn bfs [adjacencies start end-predicate]
   (var seen {start true})
   (var queue (make-queue))
 
   (fn loop [[this-node steps]]
     (if (end-predicate this-node)
         steps
-        (do (each [_ adj-node (ipairs (adj-fn this-node))]
+        (do (each [_ adj-node (ipairs (adjacencies this-node))]
               (when (not (. seen adj-node))
                 (tset seen adj-node true)
                 (queue.en [adj-node (+ steps 1)])))
@@ -80,10 +79,10 @@
   (loop [start 0]))
 
 (fn part1 [graph]
-  (bfs graph graph.S #(= $ graph.E) :forward))
+  (bfs graph.forward graph.S #(= $ graph.E)))
 
 (fn part2 [graph]
-  (bfs graph graph.E #(= (graph.node-height $) 97) :backward))
+  (bfs graph.backward graph.E #(= (graph.node-height $) 97)))
 
 {: parser
  : part1
