@@ -9,6 +9,11 @@
 (fn input-filename [day-number]
   (: "inputs/day%02d.txt" :format day-number))
 
+(fn show [soln]
+  (match (type soln)
+    :string soln
+    _ (fennel.view soln)))
+
 (var cookie nil)
 
 (fn get-cookie []
@@ -63,8 +68,8 @@
         (soln1 soln2) (aoc.run-solutions day raw-input)
         runtime-usec (timer.value)]
     (eprintf "Day %d:\n" day-number)
-    (eprintf "  part 1: %s\n" soln1)
-    (eprintf "  part 2: %s\n" soln2)
+    (eprintf "  part 1: %s\n" (show soln1))
+    (eprintf "  part 2: %s\n" (show soln2))
     (eprintf "  run time: %0.3f ms\n" (/ runtime-usec 1000))))
 
 aoc
