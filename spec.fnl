@@ -87,4 +87,10 @@
       [10605 2713310158]]
 
      [#(aoc.read-input 11)
-      [110220 19457438264]]]}
+      [110220 19457438264]]]
+
+ 12 [["Sabqponm\nabcryxxl\naccszExk\nacctuvwj\nabdefghi\n"
+      [31 29]]
+
+     [#(aoc.read-input 12)
+      [447 446]]]}
